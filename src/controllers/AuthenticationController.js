@@ -26,20 +26,20 @@ module.exports = {
           console.log(user)
           res.send(user.toJSON())
         } else {
-          res.status(400).send({
-            error: "Password incorrect!"
+          res.status(403).send({
+            error: "Password ou E-mail incorrect!"
           })
         }
       } else {
-        res.status(400).send({
-          error: "Cet E-Mail n'est pas encore enregistre! Veyez vous inscrire."
+        res.status(403).send({
+          error: "E-mail ou Password incorrect!"
         })
       }
 
 
     } catch (err) {
-      res.status(400).send({
-        error: "Erreur d'Authentification!"
+      res.status(500).send({
+        error: "Erreur du service d'Authentification!"
       })
     }
   }
