@@ -1,34 +1,60 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+    <v-toolbar dark class="primary" app>
+      <v-toolbar-title  class="headline text-camelcase">
+        <router-link to="/" tag="span" style="cursor: pointer">TabTracker</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
+      <v-toolbar-items>
+        <v-btn
+          flat
+          to="about"
+        >
+          <v-icon center>business</v-icon>
+          About
+        </v-btn>
+        <v-btn
+          flat
+          to="register"
+        >
+          <v-icon center>person_add</v-icon>
+          Register
+        </v-btn>
+        <v-btn
+          flat
+          to="login"
+        >
+          <v-icon center>fingerprint</v-icon>
+          Login
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <v-container>
+        <v-layout
+          text-xs-center
+          wrap
+        >
+          <v-flex xs12>
+            <router-link to="/">Home</router-link> |
+            <router-link to="about">About</router-link> |
+            <router-link to="register">Register</router-link>
+          </v-flex>
+        </v-layout>
+      </v-container>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
-export default {
+  export default {
   name: 'App',
   components: {
-    HelloWorld
+
+
   },
   data () {
     return {
